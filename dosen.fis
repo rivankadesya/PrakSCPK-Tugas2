@@ -1,0 +1,67 @@
+[System]
+Name='dosen'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=3
+NumRules=8
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='centroid'
+
+[Input1]
+Name='Penyampaian_materi'
+Range=[0 10]
+NumMFs=3
+MF1='lambat':'trimf',[-4.00529100529101 -1.00529100529101 1.99470899470899]
+MF2='sedang':'trapmf',[2 4 6 8]
+MF3='cepat':'trimf',[8.00883597883598 10.978835978836 13.978835978836]
+
+[Input2]
+Name='Kehadiran'
+Range=[0 10]
+NumMFs=2
+MF1='terlambat':'trimf',[-7 0 7]
+MF2='tepat_waktu':'trimf',[3 10 17]
+
+[Input3]
+Name='wawasan_pengetahuan'
+Range=[0 10]
+NumMFs=3
+MF1='kurang':'trimf',[-4 0 4]
+MF2='cukup':'trimf',[1 5 9]
+MF3='luas':'trimf',[6 10 14]
+
+[Output1]
+Name='minat_mahasiswa'
+Range=[0 10]
+NumMFs=2
+MF1='rendah':'trimf',[0 2.5 5]
+MF2='tinggi':'trimf',[5 7.5 10]
+
+[Output2]
+Name='bonus'
+Range=[0 30]
+NumMFs=2
+MF1='sedikit':'trimf',[0 7.5 15]
+MF2='banyak':'trimf',[15 22.5 30]
+
+[Output3]
+Name='kualitas_dosen'
+Range=[0 30]
+NumMFs=3
+MF1='C':'trimf',[0 5 10]
+MF2='B':'trimf',[10 15 20]
+MF3='A':'trimf',[20 25 30]
+
+[Rules]
+2 2 3, 2 2 3 (1) : 1
+-2 -2 1, 1 1 1 (1) : 1
+2 0 3, 2 0 3 (1) : 1
+-2 0 0, 1 0 0 (1) : 1
+-2 -2 2, 1 1 2 (1) : 1
+2 0 1, 1 0 1 (1) : 1
+-2 0 1, 1 0 0 (1) : 2
+0 -2 0, 0 -2 0 (1) : 2
